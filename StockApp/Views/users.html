@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="SAIDI Abdelhamid">
+    <title>StockApp</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/img/brand/favicon.png" type="image/x-icon">
+    <!-- Icons -->
+    <link rel="stylesheet" href="assets/vendor/nucleo/css/nucleo.css" type="text/css">
+    <link rel="stylesheet" href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+    <!-- Page plugins -->
+    <!-- Argon CSS -->
+    <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
+  </head>
+
+  <body>
+    <!-- Sidenav -->
+    <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+    </nav>
+
+
+    <!-- Main content -->
+    <div class="main-content" id="panel">
+      <!-- Topnav -->
+      <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Search form -->
+            <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
+              <div class="form-group mb-0">
+                <div class="input-group input-group-alternative input-group-merge">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                  </div>
+                  <input class="form-control" placeholder="Search" type="text">
+                </div>
+              </div>
+              <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main"
+                aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </form>
+            <!-- Navbar links -->
+            <ul class="navbar-nav align-items-center  ml-md-auto ">
+              <li class="nav-item dropdown">
+                <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">
+                  <div class="media align-items-center">
+                    <span class="avatar avatar-sm rounded-circle"
+                      style="background-color: #f8f9fe; display: flex;justify-content: center;align-items: center;">
+                      <!-- <img alt="Image placeholder" src="assets/img/theme/team-4.jpg"> -->
+                      <span id="lettre" style="color: #0D92F4; font-size: 22px; font-weight: bold;">H</span>
+                    </span>
+                    <div class="media-body  ml-2  d-none d-lg-block">
+                      <span class="mb-0 text-sm  font-weight-bold UserName"></span>
+                    </div>
+                  </div>
+                </a>
+                <div class="dropdown-menu  dropdown-menu-right ">
+                  <div class="dropdown-header noti-title">
+                    <h6 class="text-overflow m-0">Welcome!</h6>
+                  </div>
+                  <a href="profile.html" class="dropdown-item">
+                    <i class="ni ni-single-02"></i>
+                    <span>My profile</span>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item logout">
+                    <i class="ni ni-user-run"></i>
+                    <span>Logout</span>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Header -->
+      <!-- Header -->
+      <div class="header bg-primary pb-6">
+        <div class="container-fluid">
+          <div class="header-body">
+            <div class="row align-items-center py-4">
+              <div class="col-lg-6 col-7">
+                <h6 class="h2 text-white d-inline-block mb-0">Users</h6>
+              </div>
+              <div class="col-lg-6 col-5 text-right">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-sm btn-neutral" id="add-product" data-toggle="modal"
+                  data-target="#exampleModalCenter" style="display: none;">
+                  New
+                </button>
+                <a href="#" class="btn btn-sm btn-neutral">Filters</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Page content -->
+      <div class="container-fluid mt--6">
+        <div class="row">
+          <div class="col">
+            <div class="card">
+              <!-- Card header -->
+              <div class="card-header border-0">
+                <h3 class="mb-0">Users table</h3>
+              </div>
+              <!-- Light table -->
+              <div class="table-responsive">
+                <table class="table align-items-center table-flush">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col" class="sort" data-sort="username">Username</th>
+                      <th scope="col" class="sort" data-sort="poste">Poste</th>
+                      <th scope="col" class="sort" data-sort="email">Email</th>
+                      <th scope="col" class="sort" data-sort="phoneNumber">Phone Number</th>
+                      <th scope="col" class="sort" data-sort="roles">Roles</th>
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody class="user_list">
+
+                  </tbody>
+                </table>
+              </div>
+              <!-- Card footer -->
+              <div class="card-footer py-4">
+                <nav aria-label="...">
+                  <ul class="pagination justify-content-end mb-0" id="pagination-container">
+                    <li class="page-item disabled">
+                      <a class="page-link" href="#" tabindex="-1">
+                        <i class="fas fa-angle-left"></i>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                    </li>
+                    <li class="page-item active">
+                      <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">
+                        <i class="fas fa-angle-right"></i>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Footer -->
+        <footer class="py-5" id="footer-main">
+          <div class="container">
+            <div class="row align-items-center justify-content-center">
+              <div class="col-xl-6  text-center">
+                <div class="copyright text-center">
+                  &copy; 2020 <a href="https://saidi-abdelhamid.com/" class="font-weight-bold ml-1"
+                    target="_blank">Saidi Abdelhamid</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <!-- Argon Scripts -->
+    <!-- Core -->
+    <script src="./assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="./assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/vendor/js-cookie/js.cookie.js"></script>
+    <script src="./assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="./assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+    <!-- Argon JS -->
+    <script src="./assets/js/argon.js?v=1.2.0"></script>
+
+    <script>
+      let pageSize = 10; // Nombre d'éléments par page
+      let user = null;
+
+      window.onload = function () {
+        // Fonction utilitaire pour créer une option
+        let createOption = function (value, text) {
+          let option = document.createElement("option");
+          option.value = value;
+          option.innerText = text;
+          return option;
+        }
+
+        let loadPage = async function (currentPage) {
+
+          let totalPages = await UserHelper.getTotalPages(pageSize);
+          let users = await UserHelper.getUsers(currentPage, pageSize);
+
+          let paginationContainer = document.getElementById("pagination-container");
+          paginationContainer.innerHTML = ""; // Vider le conteneur de pagination
+
+          let productTableBody = document.querySelector(".user_list");
+          productTableBody.innerText = '';
+
+          if (users.length === 0) {
+            if (currentPage > 1) {
+              await loadPage(currentPage - 1);
+            } else {
+              productTableBody.innerText = "There is no users";
+            }
+            return;
+          }
+
+          // Ajouter le bouton "Previous"
+          let prevButton = document.createElement("li");
+          prevButton.className = `page-item ${currentPage === 1 ? "disabled" : ""}`;
+          prevButton.innerHTML = `
+                  <p class="page-link">
+                    <i class="fas fa-angle-left"></i>
+                    <span class="sr-only">Previous</span>
+                  </p>`;
+          prevButton.addEventListener("click", async () => {
+            if (currentPage > 1) await loadPage(currentPage - 1);
+          });
+          paginationContainer.appendChild(prevButton);
+
+          // Ajouter les numéros de page
+          for (let i = 1; i <= totalPages; i++) {
+            const pageItem = document.createElement("li");
+            pageItem.className = `page-item ${i === currentPage ? "active" : ""}`;
+            pageItem.innerHTML = `<p class="page-link">${i}</p>`;
+            pageItem.addEventListener("click", async () => await loadPage(i));
+            paginationContainer.appendChild(pageItem);
+          }
+
+          // Ajouter le bouton "Next"
+          let nextButton = document.createElement("li");
+          nextButton.className = `page-item ${currentPage === totalPages ? "disabled" : ""}`;
+          nextButton.innerHTML = `
+                  <p class="page-link">
+                    <i class="fas fa-angle-right"></i>
+                    <span class="sr-only">Next</span>
+                  </p>`;
+          nextButton.addEventListener("click", async () => {
+            if (currentPage < totalPages) await loadPage(currentPage + 1);
+          });
+          paginationContainer.appendChild(nextButton);
+
+
+          users.forEach(user => {
+            let UserRoles = user.userRoles.map(role => role.name).join(", ");
+
+            let row = `
+                      <tr>
+                        <th scope="row">
+                          <div class="media align-items-center">
+                            <div class="media-body">
+                              <span class="name mb-0 text-sm">${user.username}</span>
+                            </div>
+                          </div>
+                        </th>
+                        <td class="budget">
+                          ${user.poste}
+                        </td>
+                        <td>
+                          ${user.email}
+                        </td>
+                        <td>
+                          ${user.phoneNumber}
+                        </td>
+                        <td>
+                          ${UserRoles}
+                        </td>
+                        <td class="text-right">
+                          <div class="dropdown">
+                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">
+                              <i class="fas fa-ellipsis-v"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" id="dropdown-menu-${user.userId}"> 
+
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    `;
+
+            // Ajout de la ligne dans le tableau
+            productTableBody.insertAdjacentHTML("beforeend", row);
+
+            let dropdown = document.getElementById("dropdown-menu-" + user.userId);
+
+            let see = document.createElement("button");
+            see.className = "dropdown-item";
+            see.dataset.toggle = "modal";
+            see.dataset.target = "#detailsModalCenter";
+            see.innerText = "Details";
+            see.addEventListener("click", async () => {
+              try {
+                // Extraire et formater les informations du user
+                const details = `
+                          Nom: ${user.username}
+                          FirstName: ${user.firstname}
+                          LastName: ${user.lastname}
+                          Roles: ${UserRoles}
+                          Poste: ${user.poste}
+                          Email: ${user.email}
+                          Numéro de téléphone: ${user.phoneNumber}
+                        `;
+
+                // Afficher les détails dans une alerte ou un autre composant
+                document.querySelector("#detailsModalCenter .modal-body").innerText = details;
+              } catch (error) {
+                console.error("Erreur lors de l'affichage des détails du produit :", error);
+              }
+            });
+            dropdown.appendChild(see);
+
+            let edit = document.createElement("button");
+            edit.className = "dropdown-item";
+            edit.dataset.toggle = "modal";
+            edit.dataset.target = "#modifyModalCenter";
+            edit.innerText = "Modify";
+            edit.addEventListener("click", async () => {
+              loadModifyForm(user);
+            });
+            dropdown.appendChild(edit);
+
+            let del = document.createElement("a");
+            del.className = "dropdown-item";
+            del.innerText = "Delete";
+            del.href = "#";
+            del.addEventListener("click", async () => {
+              await UserHelper.deleteUser(user.userId);
+              await loadPage(currentPage);
+            });
+            dropdown.appendChild(del);
+
+          });
+        }
+
+        let loadModifyForm = async function (user) {
+
+          let firstname = document.getElementById("input-Update-firstname");
+          let lastname = document.getElementById("input-Update-lastname");
+          let username = document.getElementById("input-Update-username");
+          let email = document.getElementById("input-Update-email");
+          let phoneNumber = document.getElementById("input-Update-phoneNumber");
+          let poste = document.getElementById("input-Update-poste");
+          let rolesContainer = document.getElementById("input-Update-roles");
+
+          firstname.value = user.firstname;
+          lastname.value = user.lastname;
+          username.value = user.username;
+          email.value = user.email;
+          phoneNumber.value = user.phoneNumber;
+          poste.value = user.poste;
+
+          loadRoles(rolesContainer, user.userRoles.map(role => role.roleId));
+
+          document.getElementById("update-product").addEventListener("click", async () => {
+            let updatedRoles = Array.from(document.querySelectorAll("#modifyModalCenter input[type=checkbox]:checked")).map(checkbox => checkbox.value);
+            await UserHelper.updateUser(user.userId, username.value, firstname.value, lastname.value, poste.value, email.value, phoneNumber.value, updatedRoles);
+            firstname.value = "";
+            lastname.value = "";
+            username.value = "";
+            email.value = "";
+            phoneNumber.value = "";
+            poste.value = "";
+            Array.from(document.querySelectorAll("#modifyModalCenter input[type=checkbox]:checked")).forEach(checkbox => checkbox.checked = false);
+            await loadPage(1);
+            $('#modifyModalCenter').modal('hide');
+          });
+        }
+
+        let loadRoles = async function (roles, userRoles = []) {
+          let Roles = await RoleHelper.getRoles();
+
+          roles.innerHTML = '<label class="form-control-label">Roles : </label>';
+
+          Roles.forEach(role => {
+            let check = document.createElement("label");
+            check.className = "check";
+            check.setAttribute("style", "margin-left: 10px");
+            if (userRoles.includes(role.roleId)) {
+              check.innerHTML = `
+                <input type="checkbox" value="${role.roleId}" checked>
+                <span>${role.name}</span>
+              `;
+            } else {
+              check.innerHTML = `
+                <input type="checkbox" value="${role.roleId}">
+                <span>${role.name}</span>
+              `;
+            }
+            roles.appendChild(check);
+
+          });
+        }
+
+        let loadform = async function () {
+          let roles = document.getElementById('input-roles'); //document.getElementById('input-Update-roles').
+
+          loadRoles(roles);
+
+          document.getElementById("save-product").addEventListener("click", async () => {
+            let username = document.getElementById("input-username").value;
+            let firstname = document.getElementById("input-firstname").value;
+            let lastname = document.getElementById("input-lastname").value;
+            let poste = document.getElementById("input-poste").value;
+            let email = document.getElementById("input-email").value;
+            let phoneNumber = document.getElementById("input-phoneNumber").value;
+            let roles = Array.from(document.querySelectorAll("#exampleModalCenter input[type=checkbox]:checked")).map(checkbox => checkbox.value);
+
+            await UserHelper.addUser(username, firstname, lastname, poste, email, phoneNumber, roles);
+            document.getElementById("input-username").value = "";
+            document.getElementById("input-firstname").value = "";
+            document.getElementById("input-lastname").value = "";
+            document.getElementById("input-poste").value = "";
+            document.getElementById("input-email").value = "";
+            document.getElementById("input-phoneNumber").value = "";
+            Array.from(document.querySelectorAll("#exampleModalCenter input[type=checkbox]:checked")).forEach(checkbox => checkbox.checked = false);
+            await loadPage(1);
+            $('#exampleModalCenter').modal('hide');
+          });
+        }
+
+        CefSharp.BindObjectAsync("UserHelper", "ProductHelper", "CategoryHelper", "RoleHelper").then(async () => {
+          user = await UserHelper.getAuth();
+          document.querySelector(".UserName").innerText = user.username;
+          document.querySelector("#lettre").innerText = user.username.charAt(0).toUpperCase();
+
+          if (user?.userRoles?.some(role => role.name === "Manager")) {
+            document.getElementById("add-product").style.display = "inline-block";
+          }
+          loadSideNav(user);
+
+          await loadPage(1); // Charger la première page par défaut
+          await loadform();
+
+          Array.from(document.getElementsByClassName('logout')).forEach((element) => {
+            element.addEventListener('click', async (e) => {
+              e.preventDefault();
+              await UserHelper.logout();
+              window.location.href = "login.html";
+            });
+          });
+        });
+      }
+    </script>
+
+    <!-- New Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Add a new user</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="row">
+                <div class="col">
+                  <div class="alert alert-primary" role="alert">
+                    Info : Default password is 'root'
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-firstname">First Name</label>
+                    <input type="text" id="input-firstname" class="form-control" placeholder="" value="">
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-lastname">Last Name</label>
+                    <input type="text" id="input-lastname" class="form-control" placeholder="" value="">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-username">User Name</label>
+                    <input type="text" id="input-username" class="form-control" placeholder="" value="">
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-poste">Poste</label>
+                    <input type="text" id="input-poste" class="form-control" placeholder="" value="">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-email">Email</label>
+                    <input type="email" id="input-email" class="form-control" placeholder="">
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-phoneNumber">Phone Number</label>
+                    <input type="text" id="input-phoneNumber" class="form-control" placeholder="" value="">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group" id="input-roles">
+
+                  </div>
+                </div>
+              </div>
+
+            </form>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="save-product">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="detailsModalCenter" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-l modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">User details</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modifyModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Modify a user</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-Update-firstname">First Name</label>
+                    <input type="text" id="input-Update-firstname" class="form-control" placeholder="" value="">
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-Update-lastname">Last Name</label>
+                    <input type="text" id="input-Update-lastname" class="form-control" placeholder="" value="">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-Update-username">User Name</label>
+                    <input type="text" id="input-Update-username" class="form-control" placeholder="" value="">
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-Update-email">Email</label>
+                    <input type="email" id="input-Update-email" class="form-control" placeholder="">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-Update-phoneNumber">Phone Number</label>
+                    <input type="text" id="input-Update-phoneNumber" class="form-control" placeholder="" value="">
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-Update-poste">Poste</label>
+                    <input type="text" id="input-Update-poste" class="form-control" placeholder="" value="">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group" id="input-Update-roles">
+
+                  </div>
+                </div>
+              </div>
+
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="update-product">Update</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+</html>
