@@ -25,9 +25,11 @@
 
 ## Aperçu
 
-| Écran d'accueil | Gestion de stock | Statistiques |
+| Écran de connexion | Écran d'accueil | Profil |
 |-----------------|------------------|--------------|
-| ![Accueil](assets/home.png) | ![Stock](assets/stock.png) | ![Stats](assets/stats.png) |
+| ![Login](https://github.com/user-attachments/assets/fba88158-ba66-4a2b-8f96-2ec0b9a46352) | ![Dashboard](https://github.com/user-attachments/assets/5b7a2e20-99c2-4899-a122-59581e8e230d)
+ | ![Profile](https://github.com/user-attachments/assets/7dcc5a07-3373-4b65-9faf-7ad25efc143d)
+ |
 
 
 ## Installation
