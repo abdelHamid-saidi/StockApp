@@ -25,7 +25,9 @@
 
 ## Aperçu
 
-*(Ajoutez ici des captures d’écran si possible, pour montrer l’interface.)*
+| Écran d'accueil | Gestion de stock | Statistiques |
+|-----------------|------------------|--------------|
+| ![Accueil](assets/home.png) | ![Stock](assets/stock.png) | ![Stats](assets/stats.png) |
 
 
 ## Installation
