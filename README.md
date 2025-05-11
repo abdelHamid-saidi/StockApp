@@ -5,16 +5,17 @@
 
 ## Fonctionnalités
 
-- 🗃️ Gestion des produits (ajout, modification, suppression)
-- 📉 Suivi des entrées et sorties de stock
-- 🔍 Interface de recherche rapide
-- 📊 Statistiques visuelles intégrées
-- 💡 Design responsive grâce à l'intégration HTML/CSS/JS dans WinForms
+-  Gestion des produits (ajout, modification, suppression)
+-  Suivi des entrées et sorties de stock
+-  Interface de recherche rapide
+-  Statistiques visuelles intégrées
+-  Design responsive grâce à l'intégration HTML/CSS/JS dans WinForms
 
 
 ##  Technologies utilisées
 
 - **Langage principal** : C#
+- **Moteur d’affichage Web** : [CefSharp](https://github.com/cefsharp/CefSharp)
 - **Interface enrichie avec** :
   - HTML5 / CSS3
   - JavaScript
